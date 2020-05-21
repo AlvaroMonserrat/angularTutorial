@@ -7,15 +7,10 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = "My Angular Project";
-  titleState = false;
 
-  changeTitle(){
-    this.titleState = !this.titleState
-    if(this.titleState){
-      this.title = "Tutorial Udemy";
-    }else{
-      this.title = "My Angular Project";
-    }
+  loadedFeature = 'recipe';
+
+  onNavigate(feature: string){
+    this.loadedFeature = feature;
   }
 }
