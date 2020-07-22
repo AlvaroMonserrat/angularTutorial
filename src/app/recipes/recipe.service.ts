@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 export class RecipeService{
 
     recipesChanged = new Subject<Recipe[]>();
-
+    /*
     private recipes: Recipe[] = [
         new Recipe(
             'Chicken Rice',
@@ -37,8 +37,15 @@ export class RecipeService{
                 new Ingredient('Flour', 500)
             ])
       ];
+      */
+     private recipes: Recipe[];
 
     constructor(private slService: ShoppingListService){}
+
+    setRecipes(recipes: Recipe[]){
+        this.recipes = recipes;
+        this.recipesChanged.next(this.recipes.slice());
+    }
 
     getRecipes(){
         return this.recipes.slice(); //slice pasa un copia del array no la referencia
@@ -66,5 +73,8 @@ export class RecipeService{
         this.recipes.splice(index, 1);
         this.recipesChanged.next(this.recipes.slice());
     }
+
+
+
 
 }
