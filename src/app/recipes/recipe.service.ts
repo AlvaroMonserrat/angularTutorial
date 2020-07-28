@@ -38,7 +38,7 @@ export class RecipeService{
             ])
       ];
       */
-     private recipes: Recipe[];
+    private recipes: Recipe[];
 
     constructor(private slService: ShoppingListService){}
 
